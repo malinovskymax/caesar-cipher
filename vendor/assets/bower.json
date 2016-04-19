@@ -1,0 +1,10 @@
+{
+  "name": "dsl-generated dependencies",
+  "dependencies": {
+    "bootstrap": "3.3.6",
+    "angular": "1.5.3",
+    "angular-ui-router": "latest",
+    "angular-resource": "1.5.3",
+    "angular-google-chart": "latest"
+  }
+}

@@ -1,0 +1,12 @@
+# Always edit application.yml before using in production
+# /config/application.yml
+/.bundle
+/.idea
+/log/*
+!/log/.keep
+/tmp
+.rspec
+/public/system
+/spec/tmp
+/vendor/bundle
+.ruby-version

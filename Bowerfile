@@ -1,0 +1,7 @@
+# Check out https://github.com/42dev/bower-rails#ruby-dsl-configuration for more options
+
+asset 'bootstrap', '3.3.6'
+asset 'angular', '1.5.3'
+asset 'angular-ui-router'
+asset 'angular-resource', '1.5.3'
+asset 'angular-google-chart'

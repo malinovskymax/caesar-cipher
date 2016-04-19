@@ -1,0 +1,11 @@
+h2.alert.alert-danger data-ng-show="errorText" {{::errorText}}
+h2.alert.alert-warning data-ng-show="warningText" {{::warningText}}
+div.text-center data-ng-show="loading && !errorText && !warningText"
+  =image_tag('loading.gif', id: 'loading-image')
+
+div.well data-ng-class="loading ? 'hdn' : ''" data-ng-hide="errorText || warningText"
+  h2 Passing and failing builds per day
+  div(data-google-chart data-chart="passingFailingChart"
+      data-on-select="changeSeriesVisibility(passingFailingChart, selectedItem)")
+  h2 Build duration vs. time
+  div(data-google-chart data-chart="buildDurationChart")

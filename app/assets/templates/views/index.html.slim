@@ -1,0 +1,35 @@
+h1.text-center Encrypt, decrypt using Caesar cipher, and {{slogan}}
+
+div.col-md-5.col-xs-12.padding-0
+  textarea.col-xs-12(rows="15" autofocus maxlength="1000" placeholder="Enter your text here"
+    value="" data-ng-model="inputText" data-ng-model-options="{debounce: 500}" data-ng-change="analyzeInput()")
+  div.alert.alert-danger role="alert" data-ng-show="textInvalid" data-ng-repeat="error in validation.text" {{::error}}
+
+div.col-md-2.col-xs-12.chipher-controls data-ng-class="shiftInvalid ? '' : 'chipher-controls'"
+  button.col-xs-12.btn.btn-info.btn-lg data-ng-click="crypt('encrypt')" Encrypt
+
+  div.input-group
+    div.input-group-addon ROT
+    input.form-control type="number" min="0" max="25" data-ng-model="shift" data-ng-change="validateShift()"
+
+  div.alert.alert-danger role="alert" data-ng-show="shiftInvalid" data-ng-repeat="error in validation.shift" {{::error}}
+  button.col-xs-12.btn.btn-info.btn-lg data-ng-click="crypt('decrypt')" Decrypt
+
+textarea.col-md-5.col-xs-12(rows="15" readonly placeholder="You will get your encryption or decryption result here"
+  value="" data-ng-model="::outputText")
+
+/ Chart
+div.col-xs-12
+  div(data-google-chart data-chart="characterFrequenciesChart" data-ng-show="showChart")
+
+/ Guess message
+div.col-xs-12.guess-message data-ng-show="showGuessMessage"
+  div.alert.alert-info role="alertdialog"
+    button.close aria-label="Close" data-ng-click="showGuessMessage = false"
+      span aria-hidden="true" &times;
+    h4 Hello, dear user!
+    p We read your text, and guess what! We think it's encrypted with shift = {{guessedShift}}! Don't worry,
+      we already decrypt, read, and save it for forever in depths of our datacenter. Just in case.
+      And, if you want, we can show you decrypted text. To place it in output area, just click the button below.
+    p.col-xs-3.col-xs-offset-9.pull-right.text-right Sincerely yours, {{creepyAgencyName}}.
+    button.btn.btn-info.btn-lg data-ng-click="seeGuessed()" This button
